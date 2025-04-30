@@ -500,7 +500,6 @@ local function dyn_menu_load(item, keyword)
         dirty = false,
     }
     dyn_menus[#dyn_menus + 1] = menu
-    keyword_to_menu[keyword] = menu
 
     local expr = keyword:match('^state=(.-)%s*$')
     if expr then
@@ -509,6 +508,7 @@ local function dyn_menu_load(item, keyword)
     else
         keyword = keyword:match('^([%S]+).*$')
         menu.updater = dyn_updaters[keyword]
+        keyword_to_menu[keyword] = menu
     end
 
     -- update menu immediately
