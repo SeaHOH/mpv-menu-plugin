@@ -662,6 +662,7 @@ mp.register_script_message('update', function(keyword, json)
     end
 
     local item = menu.item
+    data.shortcut = item.shortcut
     if not data.title or data.title == '' then data.title = item.title end
     if not data.type or data.type == '' then data.type = item.type end
 
